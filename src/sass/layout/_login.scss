@@ -1,0 +1,62 @@
+.login-signup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, clamp(400px, 1fr, 600px));
+  grid-template-areas: "signup login";
+  column-gap: 1rem;
+  border-radius: 20px;
+  justify-content: center;
+  // background-color: red;
+  height: 70vh;
+  width: 70vw;
+  align-items: center;
+  border: 2px solid $black_coffee;
+  box-shadow: 2rem 2rem 2rem rgba($brown-font, 0.7);
+  padding: 4rem;
+}
+
+.login-container {
+  grid-area: login;
+  padding: 2rem;
+  margin: 3rem;
+  font-size: 2rem;
+  background-color: rgba($light_green, 0.3);
+  border-radius: 20px;
+  box-shadow: 1.5rem 3rem 2rem rgba(black, 0.3);
+
+  & label {
+    color: black;
+  }
+
+  & input {
+    font-size: 1.5rem;
+    height: 4rem;
+    border-radius: 10px;
+    border: 1px solid black;
+  }
+}
+
+.login-header {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &>h1 {
+    font-size: 4rem;
+    color: black;
+  }
+}
+
+.login-image {
+  background-image: url("../img/men_doc/MeninasDoceiras-Capa-Logo.png");
+  height: 100px;
+}
+
+.fail-login {
+  font-size: 1.5rem;
+  color: red;
+}

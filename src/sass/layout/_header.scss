@@ -1,0 +1,92 @@
+///////////////////////
+// HEADER
+//////////////////////
+.header {
+  position: relative;
+
+  height: 85vh;
+
+  @include respond(phone-land) {
+    height: 90vh;
+  }
+
+  @include respond(phone) {
+    height: 100vh;
+  }
+
+  &__background {
+    height: 100%;
+    background-image: url("../img/men_doc/MeninasDoceiras-Capa.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    @include respond(tab-port) {
+      background-image: url("../img/men_doc/MeninasDoceiras-Capa-Logo.png"),
+        url("../img/men_doc/MeninasDoceiras-Capa-SemLogo.png");
+      background-size: 45%, cover;
+      background-position: 50% 25%;
+    }
+
+    @include respond(phone-land) {
+      background-image: url("../img/men_doc/MeninasDoceiras-Capa-Logo.png"),
+        url("../img/men_doc/MeninasDoceiras-Capa-SemLogo.png");
+      background-size: 30%, cover;
+      background-position: 50% 25%;
+    }
+
+    @include respond(phone) {
+      background-image: url("../img/men_doc/MeninasDoceiras-Capa-Logo.png"),
+        url("../img/men_doc/MeninasDoceiras-Capa-SemLogo.png");
+      background-size: 70%, cover;
+      background-position: 50% 25%;
+    }
+  }
+
+  // clip-path: polygon(0 5vh, 100% 0, 100% 95vh, 0 100%);
+
+  ///////////////////////
+  // LOGO BOX
+  //////////////////////
+  &__logo-box {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  ///////////////////////
+  // LOGO
+  //////////////////////
+  &__logo {
+    // background-image: url("../img/men_doc/MeninasDoceiras-Capa-Logo.png");
+    height: 30%;
+  }
+
+  ///////////////////////
+  // TEXT BOX
+  //////////////////////
+  &__text-box {
+    height: 40%;
+    width: 60%;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-40%, 0%);
+    text-align: center;
+
+    @include respond(tab-port) {
+      transform: translate(-45%, 0%);
+    }
+
+    @include respond(phone-land) {
+      transform: translate(-50%, 0%);
+      width: 90%;
+    }
+
+    @include respond(phone) {
+      transform: translate(-50%, 0%);
+      width: 90%;
+    }
+  }
+}

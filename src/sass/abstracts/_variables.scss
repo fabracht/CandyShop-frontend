@@ -1,0 +1,68 @@
+///////////////////////
+// Z-INDEXES
+//////////////////////
+$z-low: -1;
+$z-medium: 0;
+$z-high: 1;
+$z-high1: 10;
+$z-high2: 20;
+$z-high3: 30;
+///////////////////////
+// COLORS
+//////////////////////
+$cedar_chest: #DB504A;
+$camel: #CD9C6A;
+$light_green: #A4BE5F;
+$light_pink: #DE7F73;
+$beige: #E6C569;
+$brown-font: #82623D;
+$black_coffee: #3F322D;
+$prussian_blue: #003049;
+$steel-teal: #5E8485;
+$cambridge-blue: #BCD8C1;
+$mauve: #DDB4F6;
+$light-beige: #fff9e6;
+$dark_grey: #555;
+$dark-grey2: #444;
+$dark-grey3: #222;
+$light_grey: #f7f7f7;
+$white: #fff;
+
+///////////////////////
+// GRID
+//////////////////////
+$grid_width: 114rem;
+$grid_width_tab_port: 80rem;
+$grid_width_phone_port: 50rem;
+$gutter_vertical: 8rem;
+$gutter_horizontal: 6rem;
+$gutter_vertical: 8rem;
+$gutter_vertical_small: 6rem;
+$gutter_vertical_xsmall: 2rem;
+
+
+///////////////////////
+// FONTS
+//////////////////////
+$font-bhatoshineRegular: "BhatoshineRegular";
+$font-gothamBook: "GothamBook";
+$font-gothamMedium: "GothamMedium";
+
+$default-font-size: 1.6rem;
+
+@font-face {
+  font-family: 'BhatoshineRegular';
+  src: url('../img/men_doc/fonts/bhatoshine_regular.otf');
+}
+
+@font-face {
+  font-family: 'GothamBook';
+  src: url('../img/men_doc/fonts/Gotham-Book.otf');
+  /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'GothamMedium';
+  src: url('../img/men_doc/fonts/Gotham-Medium.otf');
+  /* IE9 Compat Modes */
+}

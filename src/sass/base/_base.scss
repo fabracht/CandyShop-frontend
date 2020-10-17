@@ -1,0 +1,58 @@
+///////////////////////
+// STYLE
+//////////////////////
+*,
+*::after,
+*::before {
+
+  box-sizing: inherit;
+}
+
+html {
+  // This defines the size of rem in pixels (1 rem = 10px)
+  // Default is 16px: 10/16 = 0.625
+  font-size: 62.5% !important;
+
+  & body {
+    padding: 0;
+  }
+
+  @include respond(tab-land) {
+    // width less than 1200px
+    font-size: 56.25% !important;
+  }
+
+  @include respond(tab-port) {
+    // width less than 900px
+    font-size: 50% !important;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 80% !important;
+  }
+}
+
+body {
+  padding: 3rem;
+  box-sizing: border-box !important;
+
+  @include respond(tab-land) {
+    // width less than 1200px
+    font-size: 56.25% !important;
+    padding: 0;
+  }
+
+  @include respond(tab-port) {
+    // width less than 900px
+    font-size: 50% !important;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 80% !important;
+  }
+}
+
+::selection {
+  background-color: $light-pink !important;
+  color: $white !important;
+}

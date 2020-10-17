@@ -1,0 +1,182 @@
+///////////////////////
+// ANIMATION
+//////////////////////
+@keyframes moveInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    transform: scaleX(0.9);
+    translate: 3.5rem;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: scaleX(0.9);
+    translate: -3.5rem;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3.0rem);
+  }
+
+  80% {
+    transform: scaleY(0.9);
+    translate: 0 -.5rem;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes easeOutBounce-left {
+  0% {
+    transform: translateX(100%);
+  }
+
+  12% {
+    transform: translateX(-49.11%);
+  }
+
+  24% {
+    transform: translateX(26.44%);
+  }
+
+  36% {
+    transform: translateX(-1.99%);
+  }
+
+  54% {
+    transform: translateX(24.92%);
+  }
+
+  74% {
+    transform: translateX(-1.63%);
+  }
+
+  82% {
+    transform: translateX(6.25%);
+  }
+
+  92% {
+    transform: translateX(-.66%);
+  }
+
+  96% {
+    transform: translateX(2.54%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+
+}
+
+@keyframes easeOutBounce-up {
+  0% {
+    transform: translateY(100%);
+  }
+
+  12% {
+    transform: translateY(-89.11%);
+  }
+
+  24% {
+    transform: translateY(-56.44%);
+  }
+
+  36% {
+    transform: translateY(-1.99%);
+  }
+
+  54% {
+    transform: translateY(-24.92%);
+  }
+
+  74% {
+    transform: translateY(-1.63%);
+  }
+
+  82% {
+    transform: translateY(-6.25%);
+  }
+
+  92% {
+    transform: translateY(-.66%);
+  }
+
+  96% {
+    transform: translateY(-2.54%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+
+}
+
+@keyframes easeOutBounce-right {
+  0% {
+    transform: translateX(0%);
+  }
+
+  12% {
+    transform: translateX(49.11%);
+  }
+
+  24% {
+    transform: translateX(-26.44%);
+  }
+
+  36% {
+    transform: translateX(1.99%);
+  }
+
+  54% {
+    transform: translateX(-24.92%);
+  }
+
+  74% {
+    transform: translateX(1.63%);
+  }
+
+  82% {
+    transform: translateX(-6.25%);
+  }
+
+  92% {
+    transform: translateX(.66%);
+  }
+
+  96% {
+    transform: translateX(-2.54%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+
+}

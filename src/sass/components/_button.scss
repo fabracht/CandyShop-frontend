@@ -1,0 +1,109 @@
+///////////////////////
+// BUTTONS
+//////////////////////
+.btn {
+  // margin-top: 10rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+
+  &--white {
+    background-color: lighten($light_green, 40%);
+    color: $dark_grey;
+
+    &:after {
+      background-color: lighten($light_green, 60%);
+    }
+  }
+
+  &--green {
+    background-color: $light-green;
+    color: $dark_grey;
+
+    &:after {
+      background-color: lighten($light_green, 60%);
+    }
+  }
+
+  &--animated {
+    animation: moveInBottom 1.5s ease-out;
+    animation-fill-mode: backwards;
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &,
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4.0rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+    font-size: $default-font-size;
+    // Changes for buttons
+    border: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    color: black;
+    background-color: $light_green;
+    transform: translateY(-.3rem);
+    box-shadow: 0 3rem 2rem rgba($light_pink, 0.5);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+    transform: translateY(-.1rem);
+    box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .2);
+  }
+}
+
+.btn-text {
+
+  &:link,
+  &:visited {
+    color: $light_green;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: .3rem solid $light_green;
+    padding: .3rem;
+  }
+
+  &:hover {
+    color: black;
+    background-color: $light_green;
+    transform: translateY(-.2rem);
+    box-shadow: 0 1rem 1rem rgba($light_pink, 0.5);
+    transition: all .2s;
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(0rem);
+    box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .2);
+  }
+}

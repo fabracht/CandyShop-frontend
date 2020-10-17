@@ -1,0 +1,150 @@
+.shop-content {
+  text-align: center;
+  position: relative;
+
+  height: 80vh;
+
+  & h2 {
+    font-size: 4rem;
+  }
+
+  & p {
+    font-size: 2rem;
+  }
+}
+
+.candy-section {
+  // width: 100%;
+  color: blue;
+  display: grid;
+  // background-color: rgba(blue, 0.3);
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, clamp(300px, 30%, 550px));
+  grid-template-rows: 80vh;
+  justify-content: space-evenly;
+  align-content: center;
+  display: relative;
+
+  &-type {
+    overflow: hidden;
+    color: black;
+    padding-top: 3rem;
+    // background-color: rgba(red, 0.3);
+  }
+
+  &-divider {
+    height: 2.5px;
+    background-color: black;
+  }
+
+  &-cards {
+    overflow: auto scroll;
+    height: 90%;
+    text-align: center;
+
+    padding: 2rem;
+    // background-color: blue;
+
+    .product-card {
+      border: 5px solid grey;
+      border-radius: 10px;
+      margin: 1rem;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+
+      .photos-container {
+        position: relative;
+
+        .mySlides {
+          // display: flex;
+          position: relative;
+          // flex-wrap: nowrap;
+          // flex-direction: row;
+          overflow: hidden;
+          padding-top: 1rem;
+
+          .slide1 {
+            // width: 0%;
+            // display: none;
+          }
+
+          .slide2 {
+            // width: 100%;
+          }
+
+          .slide3 {
+            // display: none;
+            // width: 0%;
+          }
+        }
+
+        .prev,
+        .next {
+          z-index: 10;
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          color: white;
+          font-weight: bold;
+          font-size: 2rem;
+          transition: 0.6s ease;
+          border-radius: 0 3px 3px 0;
+          user-select: none;
+
+          &:hover {
+            color: rgba(purple, 0.4);
+          }
+        }
+
+        .prev {
+          transform: translate(50%, -50%);
+          left: 0%;
+        }
+
+        .next {
+          transform: translate(-50%, -50%);
+          right: 0%;
+        }
+      }
+
+      .details-container {
+        text-align: center;
+        padding: 1rem;
+
+        h2 {
+          font-size: 3rem;
+        }
+
+        p {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+.image-bullets {
+  // display: inline-block;
+  line-height: 0;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: black;
+  font-size: 5.5rem;
+
+  &::before {
+    color: grey;
+    left: 10%;
+    content: "•";
+  }
+
+  &::after {
+    color: grey;
+    left: 10%;
+    content: "•";
+  }
+}

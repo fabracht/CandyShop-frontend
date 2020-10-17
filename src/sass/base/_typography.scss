@@ -1,0 +1,144 @@
+body {
+  font-family: $font-gothamMedium, sans-serif;
+  font-size: $default-font-size;
+  line-height: 1.7;
+  color: $dark_grey;
+}
+
+.heading-primary {
+  color: $brown-font;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 2.5rem;
+
+  // margin-top: 5rem;
+  ///////////////////////
+  // MAIN
+  //////////////////////
+  &--main {
+    font-family: $font-bhatoshineRegular;
+    display: block;
+    font-size: 10rem;
+    letter-spacing: 1.5rem;
+    line-height: 8rem;
+    text-transform: lowercase;
+    animation-name: easeOutBounce-left;
+    animation-duration: 1.5s;
+
+    @include respond(tab-port) {
+      letter-spacing: 1rem;
+      font-size: 8rem;
+    }
+
+    @include respond(phone) {
+      letter-spacing: 0.5rem;
+      font-size: 5rem;
+    }
+  }
+
+  ///////////////////////
+  // SUB
+  //////////////////////
+  &--sub {
+    font-family: $font-bhatoshineRegular;
+    display: block;
+    font-size: 2rem;
+    letter-spacing: 1.2rem;
+    line-height: 6rem;
+    animation-name: easeOutBounce-right;
+    animation-duration: 1.5s;
+
+    @include respond(phone) {
+      letter-spacing: 0.5rem;
+    }
+  }
+}
+
+.heading-secondary {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, $brown-font, $beige);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+
+  &:hover {
+    // transform: skewX(10deg);
+    text-shadow: 0.5rem 1rem 2rem rgba($brown-font, 0.2);
+  }
+
+  @include respond(tap-port) {
+    font-size: 3rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2.5rem;
+  }
+}
+
+.heading-tertiary {
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: 1.6rem;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}
+
+.shop-heading-primary {
+  display: inline-block;
+  color: $brown-font;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+
+  // margin-top: 5rem;
+  ///////////////////////
+  // MAIN
+  //////////////////////
+  &--main {
+    position: relative;
+    font-family: $font-bhatoshineRegular;
+    display: block;
+    font-size: 8rem;
+    text-transform: lowercase;
+    animation-name: easeOutBounce-left;
+    animation-duration: 1.5s;
+
+    &::after,
+    &::before {
+      display: block;
+      position: absolute;
+
+      content: url("../img/men_doc/Logo@2x.svg");
+      scale: 0.4;
+    }
+
+    &::before {
+      left: -40%;
+      top: -50%;
+    }
+
+    &::after {
+      left: 89%;
+      top: -50%;
+    }
+    @include respond(tab-port) {
+      letter-spacing: 1rem;
+      font-size: 8rem;
+    }
+
+    @include respond(phone) {
+      letter-spacing: 0.5rem;
+      font-size: 5rem;
+    }
+  }
+}

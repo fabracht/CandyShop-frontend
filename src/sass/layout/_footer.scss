@@ -1,0 +1,97 @@
+.footer {
+  background-color: $black_coffee;
+  padding: 0 3rem;
+  font-size: 1.4rem;
+
+
+
+  &__logo-box {
+    height: 15rem;
+    width: 20rem;
+    margin: 0 auto;
+  }
+
+  &__logo {
+    height: 15rem;
+  }
+
+  &__navigation {
+    border-top: 3px solid $white;
+    padding-top: 1rem;
+    display: inline-block;
+
+    @include respond(tab-port) {
+      width: 100%;
+      text-align: center;
+      padding-top: 1rem;
+    }
+
+    @include respond(phone) {
+      width: 100%;
+      text-align: center;
+      padding-top: 1rem;
+    }
+  }
+
+  &__list {
+    list-style: none;
+
+    @include respond(tab-port) {
+      width: 100%;
+      text-align: center;
+    }
+
+    @include respond(phone) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__link {
+
+    &:link,
+    &:visited {
+      color: $light_grey;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+
+    &:hover,
+    &:active {
+      color: $light_green;
+    }
+
+  }
+
+  &__copyright {
+    padding-left: 3rem;
+    padding-top: 1rem;
+    display: inline-block;
+    justify-content: right;
+    border-top: 3px solid white;
+    padding-top: 1rem;
+  }
+
+  &__socialmedia {
+    margin-right: 7rem;
+
+    @include respond(tab-port) {
+      width: 100%;
+      text-align: center;
+    }
+
+    @include respond(phone) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

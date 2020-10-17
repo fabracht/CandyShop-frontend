@@ -1,0 +1,15 @@
+import feathers from "@feathersjs/client";
+import rest from "@feathersjs/rest-client";
+
+const client = feathers();
+
+// YOU HAVE TO UPDATE THIS WITH YOUR OWN DOMAIN NAME
+// IF using localhost, remember to set env variable HTTPS=true
+// const restClient = rest("http://localhost:8080");
+const restClient = rest(
+  "https://us-central1-cpsc2600-1586497702568.cloudfunctions.net/mendoc"
+);
+
+client.configure(restClient.fetch(window.fetch));
+
+export default client;
