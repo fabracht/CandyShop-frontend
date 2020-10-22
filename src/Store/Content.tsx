@@ -170,24 +170,10 @@ class Content extends Component<Props, State> {
     return (
       <div className="shop-content">
         <div className="candy-section">
-          <div className="candy-section-type">
-            <h2 className="heading-secondary">Small Cakes</h2>
-            <div className="candy-section-cards">
-              {this.cardGenerator("cake")}
-            </div>
-          </div>
-
-          <div className="candy-section-type">
-            <h2 className="heading-secondary">Bombons</h2>
-            <div className="candy-section-cards">
-              {this.cardGenerator("bonbon")}
-            </div>
-          </div>
-          <div className="candy-section-type">
-            <h2 className="heading-secondary">Coconut Taffy</h2>
-            <div className="candy-section-cards">
-              {this.cardGenerator("taffy")}
-            </div>
+          <div className="candy-section-cards">
+            {this.cardGenerator("cake")}
+            {this.cardGenerator("bonbon")}
+            {this.cardGenerator("taffy")}
           </div>
         </div>
       </div>

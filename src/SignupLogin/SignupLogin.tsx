@@ -24,7 +24,9 @@ class SignupLogin extends Component<PropTypes> {
   }
   render() {
     return (
-      <GoogleReCaptchaProvider reCaptchaKey="6LcfFLoZAAAAAPYY794Nuvo-v-WDqjHnRNLk27RJ">
+      <GoogleReCaptchaProvider
+        reCaptchaKey={process.env.REACT_APP_RECAPTCHAKEY}
+      >
         <div className="login-signup">
           <SignupRecaptcha setToken={this.props.setToken} />
           <LoginRecaptcha setToken={this.props.setToken} />

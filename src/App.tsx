@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
-import Home from "./Home/Home";
+// import { App as SignupLogin } from "./SignupLogin/SignupLogin";
+// import Home from "./Home/Home";
+
 import { App as ShopMain } from "./Store/ShopMain";
-import { App as SignupLogin } from "./SignupLogin/SignupLogin";
 import {
   BrowserRouter as Router,
   Switch,
@@ -33,10 +34,10 @@ class App extends Component<PropTypes, StateTypes> {
     return (
       <Router>
         <Switch>
-          <Route path="/" component={SignupLogin} exact />
-          <Route path="/home" component={Home} exact />
+          {/* <Route path="/" component={Home} exact />
+          <Route path="/signup" component={SignupLogin} exact /> */}
           <Route
-            path="/loja"
+            path="/"
             component={ShopMain}
             products={this.state.products}
             cart={this.state.cart}

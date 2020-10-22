@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "./_Shopmain.scss";
-import Navigation from "./Navigation";
+import { Header } from "./Header";
+// import Navigation from "./Navigation";
 import Content from "./Content";
-import MainShopButton from "./MainShopButton";
+// import MainShopButton from "./MainShopButton";
 
 // import Footer from "./Footer";
 
@@ -57,21 +58,28 @@ class ShopMain extends Component<PropTypes, StateTypes> {
   render(): JSX.Element {
     return (
       <div>
-        <MainShopButton
+        <Header
           cart={this.props.cart}
           fetchCart={this.props.fetchCart}
           emptyCart={this.props.emptyCart}
           fetchToken={this.props.fetchToken}
           tk={this.props.tk}
-        />
+        ></Header>
+        {/* <MainShopButton
+          cart={this.props.cart}
+          fetchCart={this.props.fetchCart}
+          emptyCart={this.props.emptyCart}
+          fetchToken={this.props.fetchToken}
+          tk={this.props.tk}
+        /> */}
 
-        <Navigation
+        {/* <Navigation
           cart={this.props.cart}
           tk={this.props.tk}
           fetchCart={this.props.fetchCart}
           emptyCart={this.props.emptyCart}
           fetchToken={this.props.fetchToken}
-        />
+        /> */}
         <Content
           productList={this.props.products}
           cart={this.props.cart}

@@ -124,20 +124,6 @@ class MainShopButton extends React.Component<Props, State> {
   render() {
     return (
       <div className="checkout-menu">
-        <i className="checkout-menu__icon fa fa-shopping-cart">
-          <p>CART</p>
-          {this.props.cart.length !== 0 ? (
-            <div className="cart-items">
-              {this.props.cart
-                .map((el: ICartBox) => el.quantity)
-                .reduce((el: number, acc: number) => acc + el)}
-            </div>
-          ) : this.state.didCheckout ? (
-            <div className="cart-items"></div>
-          ) : (
-            <div className="cart-items" />
-          )}
-        </i>
         <input
           type="checkbox"
           className="checkout-menu__checkbox"
@@ -154,7 +140,8 @@ class MainShopButton extends React.Component<Props, State> {
               {this.props.cart.length
                 ? `Total: ${this.props.cart
                     .map((el: ICartBox) => el.product.price * el.quantity)
-                    .reduce((el: number, acc: number) => (acc += el))}`
+                    .reduce((el: number, acc: number) => (acc += el))
+                    .toFixed(2)}`
                 : `0.00`}{" "}
             </p>
           </div>

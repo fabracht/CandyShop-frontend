@@ -1,9 +1,16 @@
 .checkout-menu {
   position: absolute;
-  right: 0;
-  font-family: "Fira Mono";
+  left: -300%;
+  background-color: rgba(blue, 0.2);
+  height: 0;
+  // left: 300%;
+  top: 0%;
+  // transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  // font-family: "Fira Mono";
   z-index: 25;
-
+  display: hidden;
   // border: 1px dashed red;
   // background-color: rgba(lightblue, 0.1);
 
@@ -23,14 +30,14 @@
       cursor: pointer;
     }
 
-    &>.cart-icon {
+    & > .cart-icon {
       position: relative;
-
     }
-    
+
     .cart-items {
       color: white;
       position: absolute;
+      font-size: 5px;
       top: 12.5%;
       left: 50%;
     }
@@ -40,31 +47,36 @@
     position: absolute;
     opacity: 0;
     cursor: pointer;
-    top: 20%;
-    right: 14%;
+    top: 0;
+    right: 5%;
     text-align: right;
     z-index: 10;
     width: 75px;
     height: 75px;
   }
 
-  &__checkbox:checked~&__card {
-    transform: translate(-10%, 70%);
+  &__checkbox:checked ~ &__card {
+    transform: translate(0%, 10vh);
   }
 
   &__card {
     transition: transform 0.5s cubic-bezier(0.83, 0, 0.17, 1);
-    transform: translate(150%, 70%);
+    transform: translate(200%, 10vh);
     text-align: left;
-    display: grid;
-    grid-gap: 10px;
-    grid-template-rows: auto 1fr repeat(auto-fit, minmax(150px, 100%));
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    // display: grid;
+    // grid-gap: 10px;
+    // grid-template-rows: auto 1fr repeat(auto-fit, minmax(50px, 100%));
     justify-content: center;
     padding: 5px;
-    background-color: rgba(#a4bf60, 0.8);
+    background-color: rgba(#a4bf60, 1);
     border-radius: 10px;
 
-    &>* {
+    & > * {
+      width: 100%;
       border: 2px solid rgba(grey, 0.1);
       padding: 3px;
       border-radius: 6px;
@@ -93,7 +105,7 @@
       grid-gap: 10px;
       align-items: center;
 
-      &>.address-label {
+      & > .address-label {
         margin: 0;
         padding: 0;
         color: darken(grey, 40%);
@@ -102,7 +114,7 @@
         font-size: 1.5rem;
       }
 
-      &>.address-input {
+      & > .address-input {
         font-size: 2rem;
         margin: 0;
         padding: 6px;
@@ -112,7 +124,7 @@
         background-color: rgba(lightgrey, 0.2);
       }
 
-      &>.address-button {
+      & > .address-button {
         transform: translate(-10%, -5%);
         background: #fff;
         color: black;
@@ -137,10 +149,11 @@
   }
 
   .products {
-    display: grid;
-    grid-template-rows: auto-fit;
-    grid-gap: 5px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
     overflow: scroll;
+    max-height: 300px;
 
     &-item {
       display: grid;
@@ -150,12 +163,14 @@
       border-bottom: 1px solid lightgrey;
 
       .product {
-        // &-image {}
+        &-image {
+          width: 90%;
+        }
 
         &-description {
-          &> :first-child {
+          & > :first-child {
             font-weight: 500;
-            font-size: 2.0rem;
+            font-size: 2rem;
             color: teal;
 
             &::after {
@@ -164,7 +179,7 @@
             }
           }
 
-          &> :last-child {
+          & > :last-child {
             font-size: 1.2rem;
             color: rgba(black, 0.7);
           }
@@ -174,12 +189,10 @@
           display: grid;
           margin: 0;
           padding: 0;
-          grid-template-areas: "input plus""input minus";
+          grid-template-areas: "input plus" "input minus";
           place-items: center;
 
-
           &__link {
-
             // position: absolute;
 
             &.plus {
@@ -197,7 +210,6 @@
                 border-radius: 100px;
               }
 
-
               &::after,
               &::before {
                 content: "";
@@ -205,7 +217,7 @@
                 width: 10px;
                 height: 2px;
                 background-color: black;
-                transition: all .2s;
+                transition: all 0.2s;
                 top: 50%;
                 left: 50%;
                 transform: translateX(-50%);
@@ -214,8 +226,6 @@
               &::after {
                 transform: translateX(-50%) rotate(90deg);
               }
-
-
             }
 
             &.minus {
@@ -239,7 +249,7 @@
 
                 background-color: black;
                 display: inline-block;
-                transition: all .2s;
+                transition: all 0.2s;
               }
 
               &:active {
@@ -249,7 +259,7 @@
             }
           }
 
-          &>input {
+          & > input {
             grid-area: input;
             width: 3ch;
             height: 4ch;
