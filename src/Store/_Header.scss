@@ -1,3 +1,4 @@
+@import "../sass/abstracts/variables";
 .shop-header {
   position: relative;
   display: flex;
@@ -14,13 +15,15 @@
 
   &__item {
     text-decoration: none;
-    color: darken(#81623e, 10%);
+    color: black;
+    // color: darken(#81623e, 10%);
     padding: 0 3rem;
     i {
       font-size: 4rem;
+      text-shadow: 5px 5px 3.5px rgba(grey, 1);
     }
     p {
-      font-size: 3rem;
+      font-size: 2rem;
     }
   }
 
@@ -41,18 +44,24 @@
   &__cart {
     position: relative;
     cursor: pointer;
+    color: $light_green;
 
+    p {
+      color: black;
+    }
     &:hover {
       cursor: pointer;
     }
   }
   .cart-items {
-    color: white;
-    font-size: 3rem;
+    // background-color: white;
+    color: black;
+    font-size: 2.5rem;
     font-weight: 700;
-    text-shadow: 1px 1px black;
+    // text-shadow: 1px 1px black;
+    text-shadow: 5px 5px 3.5px rgba(black, 0.4);
     position: absolute;
-    top: 0;
+    top: 3%;
     left: 50%;
     transform: translate(-25%, 0);
   }

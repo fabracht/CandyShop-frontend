@@ -18,7 +18,7 @@ export function Header(props: any) {
       <div className="shop-header__item shop-header__logo">
         <img src={Logo} alt="" width="500px" />
       </div>
-      <Link to="/home" className="shop-header__item">
+      <Link to="/signup" className="shop-header__item">
         <i className="fa fa-sign-in">
           <p>LOGIN</p>
         </i>

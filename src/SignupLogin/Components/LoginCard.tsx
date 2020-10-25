@@ -1,5 +1,5 @@
 import React, { Component, FormEvent, ChangeEvent } from "react";
-import LoginButton from "./LoginButton";
+// import LoginButton from "./LoginButton";
 import { Redirect } from "react-router-dom";
 import { GoogleReCaptcha } from "react-google-recaptcha-v3";
 import { withGoogleReCaptcha } from "react-google-recaptcha-v3";
@@ -31,7 +31,7 @@ class LoginCard extends Component<Props, State> {
     };
     this.handleLogin = this.handleLogin.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    // this.setCaptchaToken = this.setCaptchaToken.bind(this);
+    this.setCaptchaToken = this.setCaptchaToken.bind(this);
   }
 
   async componentDidMount() {}
@@ -46,7 +46,7 @@ class LoginCard extends Component<Props, State> {
     const form = ev.currentTarget;
     if (form.checkValidity()) {
       try {
-        const result = await fetch("http://localhost:3030/login", {
+        const result = await fetch("http://10.0.0.8:3030/login", {
           method: "POST",
           mode: "cors",
           headers: {
@@ -55,7 +55,7 @@ class LoginCard extends Component<Props, State> {
           body: JSON.stringify({
             email: emailField.value,
             password: this.state.password,
-            // recaptchaToken: this.state.recaptchaToken,
+            recaptchaToken: this.state.recaptchaToken,
           }),
         });
         const resultText = await result.json();
@@ -101,11 +101,11 @@ class LoginCard extends Component<Props, State> {
     );
   }
 
-  // setCaptchaToken(token: string | null) {
-  //   this.setState({
-  //     recaptchaToken: token,
-  //   });
-  // }
+  setCaptchaToken(token: string | null) {
+    this.setState({
+      recaptchaToken: token,
+    });
+  }
 
   render() {
     if (this.state.hasValidToken) {
@@ -113,14 +113,12 @@ class LoginCard extends Component<Props, State> {
     }
     return (
       <div className="login-container">
-        {/* <GoogleReCaptcha onVerify={this.setCaptchaToken} /> */}
-        <form className="flex-grow-1" onSubmit={this.handleLogin}>
-          <h2 className="text-center">
-            <strong>Login</strong> form.
-          </h2>
-          <div className="form-group">
+        <GoogleReCaptcha onVerify={this.setCaptchaToken} />
+        <form className="login-container-form" onSubmit={this.handleLogin}>
+          <h2 className="login-container-form-title">Login</h2>
+          <div className="login-container-form-group">
             <input
-              className="form-control"
+              className="login-container-form-control"
               type="email"
               name="email"
               placeholder="Email"
@@ -129,9 +127,9 @@ class LoginCard extends Component<Props, State> {
               onChange={this.handleChange}
             />
           </div>
-          <div className="form-group">
+          <div className="login-container-form-group">
             <input
-              className="form-control"
+              className="login-container-form-control"
               type="password"
               name="password"
               placeholder="Password"
@@ -143,7 +141,7 @@ class LoginCard extends Component<Props, State> {
           {this.state.isLoginResponseSuccess || this.createWarning()}
           <div className="form-group">
             <button
-              className="btn btn-primary btn-block"
+              className="btn"
               data-toggle="tooltip"
               data-bs-tooltip=""
               type="submit"
@@ -151,9 +149,9 @@ class LoginCard extends Component<Props, State> {
             >
               Log In
             </button>
-            <LoginButton />
+            {/* <LoginButton /> */}
           </div>
-          <a className="forgot" href="/">
+          <a className="login-container-form-forgot" href="/">
             Forgot your email or password?
           </a>
         </form>
@@ -162,5 +160,5 @@ class LoginCard extends Component<Props, State> {
   }
 }
 
-// export const LoginRecaptcha = withGoogleReCaptcha(LoginCard);
-export const LoginRecaptcha = LoginCard;
+export const LoginRecaptcha = withGoogleReCaptcha(LoginCard);
+// export const LoginRecaptcha = LoginCard;

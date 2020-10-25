@@ -17,6 +17,7 @@ interface State {
   recaptchaToken: string | null;
   hasValidToken: boolean;
   isLoginResponseSuccess: boolean;
+  LoginResponse: string;
 }
 
 class SignupCard extends Component<Props, State> {
@@ -32,6 +33,7 @@ class SignupCard extends Component<Props, State> {
       recaptchaToken: "",
       hasValidToken: false,
       isLoginResponseSuccess: true,
+      LoginResponse: "",
     };
 
     this.handleSignup = this.handleSignup.bind(this);
@@ -41,11 +43,10 @@ class SignupCard extends Component<Props, State> {
 
   async handleSignup(ev: FormEvent<HTMLFormElement>) {
     ev.preventDefault();
-    console.log("HANDLING SIGNUP");
     const form = ev.currentTarget;
     if (form.checkValidity()) {
       try {
-        const result = await fetch("http://localhost:3030/signup", {
+        const result = await fetch("http://10.0.0.8:3030/signup", {
           method: "POST",
           mode: "cors",
           headers: {
@@ -59,27 +60,36 @@ class SignupCard extends Component<Props, State> {
           }),
         });
         const resultText = await result.json();
-        console.log(resultText.message);
-        if (
-          resultText.authentication &&
-          resultText.authentication.accessToken !== undefined
-        ) {
+        const { err } = resultText;
+
+        if (err) {
+          this.setState({
+            LoginResponse: err,
+          });
+        }
+
+        // console.log(resultText.headers);
+        // console.log(resultText.body);
+        // console.log(resultText.ok);
+        if (resultText?.headers?.access_token !== undefined) {
+          this.props.setToken(resultText.body.accessToken);
           this.setState({
             email: "",
             password: "",
-            accessToken: resultText.accessToken,
+            accessToken: resultText.headers.access_token,
             hasValidToken: true,
             isLoginResponseSuccess: true,
           });
-          this.props.setToken(resultText.authentication.accessToken);
-          console.log(3);
-        } else if (resultText.success === false) {
+        } else if (resultText.ok === false) {
           this.setState({
             isLoginResponseSuccess: false,
           });
         }
       } catch (err) {
-        console.log(err);
+        this.setState({
+          isLoginResponseSuccess: false,
+          LoginResponse: "",
+        });
       }
     } else {
     }
@@ -122,15 +132,15 @@ class SignupCard extends Component<Props, State> {
       return <Redirect to="/loja" />;
     }
     return (
-      <div className="signup-container">
+      <div className="login-container">
         <GoogleReCaptcha onVerify={this.setCaptchaToken} />
-
-        {/* <div className="form-container"> */}
-        <form method="post" onSubmit={this.handleSignup}>
-          <h2 className="text-center">
-            <strong>Create</strong> an account.
-          </h2>
-          <div className="form-group">
+        <form
+          className="login-container-form"
+          method="post"
+          onSubmit={this.handleSignup}
+        >
+          <h2 className="login-container-form-title">Create an account</h2>
+          <div className="login-container-form-group">
             <input
               className="form-control"
               type="text"
@@ -142,7 +152,7 @@ class SignupCard extends Component<Props, State> {
               onChange={this.handleChange}
             />
           </div>
-          <div className="form-group">
+          <div className="login-container-form-group">
             <input
               className="form-control"
               type="email"
@@ -152,8 +162,9 @@ class SignupCard extends Component<Props, State> {
               value={this.state.email}
               onChange={this.handleChange}
             />
+            <span>{this.state.LoginResponse}</span>
           </div>
-          <div className="form-group">
+          <div className="login-container-form-group">
             <input
               className="form-control"
               type="password"
@@ -165,7 +176,7 @@ class SignupCard extends Component<Props, State> {
               onChange={this.handleChange}
             />
           </div>
-          <div className="form-group">
+          <div className="login-container-form-group">
             <input
               className="form-control"
               type="password"
@@ -177,21 +188,21 @@ class SignupCard extends Component<Props, State> {
               onChange={this.handleChange}
             />
           </div>
-          <div className="form-group">
-            <div className="form-check">
-              <label className="form-check-label">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  required={true}
-                />
+          <div className="login-container-form-group">
+            <div className="login-container-form-check">
+              <input
+                className="login-container-form-check-input"
+                type="checkbox"
+                required={true}
+              />
+              <label className="login-container-form-check-label">
                 I agree to the license terms.
               </label>
             </div>
           </div>
-          <div className="form-group">
+          <div className="login-container-form-group">
             <button
-              className="btn btn-primary btn-block"
+              className="btn"
               data-toggle="tooltip"
               data-bs-tooltip=""
               type="submit"

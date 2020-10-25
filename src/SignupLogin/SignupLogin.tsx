@@ -28,8 +28,10 @@ class SignupLogin extends Component<PropTypes> {
         reCaptchaKey={process.env.REACT_APP_RECAPTCHAKEY}
       >
         <div className="login-signup">
-          <SignupRecaptcha setToken={this.props.setToken} />
-          <LoginRecaptcha setToken={this.props.setToken} />
+          <div className="login-signup-container">
+            <SignupRecaptcha setToken={this.props.setToken} />
+            <LoginRecaptcha setToken={this.props.setToken} />
+          </div>
         </div>
       </GoogleReCaptchaProvider>
     );

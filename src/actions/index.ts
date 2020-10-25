@@ -16,10 +16,17 @@ export interface ISetTokenAction {
   payload: IToken;
 }
 
+export enum EProductType {
+  taffy,
+  bonbon,
+  cake,
+}
+
 export interface IProduct {
   _id?: string;
   name: string;
   weight: number;
+  description: string;
   discount?: number;
   price: number;
   type: string;
@@ -57,7 +64,7 @@ export const fetchProducts = () => {
       "Content-Type": "application/json",
     });
     try {
-      const result = await fetch("http://localhost:3030/product", {
+      const result = await fetch("http://10.0.0.8:3030/product", {
         method: "GET",
         mode: "cors", // no-cors, *cors, same-origin
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -85,7 +92,7 @@ export const fetchCart = () => {
 
   const cart = localStorage.getItem("mendocCart")?.split(",");
   return async (dispatch: Dispatch) => {
-    const result = await fetch("http://localhost:3030/product", {
+    const result = await fetch("http://10.0.0.8:3030/product", {
       method: "GET",
       mode: "cors", // no-cors, *cors, same-origin
       cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached

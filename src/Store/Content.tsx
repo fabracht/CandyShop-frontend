@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { IProduct, ICartBox } from "../../src/actions";
+import { IProduct, ICartBox, EProductType } from "../../src/actions";
 
 interface Props {
   productList: IProduct[];
@@ -118,11 +118,12 @@ class Content extends Component<Props, State> {
       if (i === 1) {
         hid = false;
       }
+      const colorChars = "7AD";
       imgArray.push(
         <img
           key={i}
           className={`slide${i}`}
-          src={`https://via.placeholder.com/150x${74 + i}`}
+          src={`https://via.placeholder.com/200/${colorChars[i]}`}
           alt=""
           width="100%"
           hidden={hid}
@@ -167,13 +168,24 @@ class Content extends Component<Props, State> {
   }
 
   render() {
+    const productTypes = Object.values(EProductType).map(
+      (el: string | number) => {
+        if (typeof el === "string") {
+          return el;
+        }
+        return undefined;
+      }
+    );
     return (
       <div className="shop-content">
         <div className="candy-section">
           <div className="candy-section-cards">
-            {this.cardGenerator("cake")}
+            {productTypes.map((el) =>
+              el ? this.cardGenerator(el) : undefined
+            )}
+            {/* {this.cardGenerator("cake")}
             {this.cardGenerator("bonbon")}
-            {this.cardGenerator("taffy")}
+            {this.cardGenerator("taffy")} */}
           </div>
         </div>
       </div>
