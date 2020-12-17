@@ -64,11 +64,11 @@ export const fetchProducts = () => {
       "Content-Type": "application/json",
     });
     try {
-      const result = await fetch("http://10.0.0.8:3030/product", {
+      const result = await fetch("https://localhost:443/product", {
         method: "GET",
         mode: "cors", // no-cors, *cors, same-origin
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: "same-origin",
+        credentials: "include",
         headers,
       });
       const { data } = await result.json();
@@ -92,24 +92,25 @@ export const fetchCart = () => {
 
   const cart = localStorage.getItem("mendocCart")?.split(",");
   return async (dispatch: Dispatch) => {
-    const result = await fetch("http://10.0.0.8:3030/product", {
-      method: "GET",
-      mode: "cors", // no-cors, *cors, same-origin
-      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: "same-origin",
-      headers,
-    });
-    const { data } = await result.json();
-    const { products } = data;
-    let tempResult: ICartBox[] = [];
-    if (cart) {
-      const idList: string[] = cart.map((el: string) => {
-        return el.split("-")[0];
+    try {
+      const result = await fetch("https://localhost:443/product", {
+        method: "GET",
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "include",
+        headers,
       });
-      const quantList: number[] = cart.map((el: string) => {
-        return Number(el.split("-")[1]);
-      });
-      try {
+      const { data } = await result.json();
+      const { products } = data;
+      let tempResult: ICartBox[] = [];
+      if (cart) {
+        const idList: string[] = cart.map((el: string) => {
+          return el.split("-")[0];
+        });
+        const quantList: number[] = cart.map((el: string) => {
+          return Number(el.split("-")[1]);
+        });
+
         for (let i = 0; i < idList.length; ++i) {
           let found = products.find((el: IProduct) => el._id === idList[i]);
           if (found) {
@@ -118,17 +119,17 @@ export const fetchCart = () => {
               quantity: quantList[i],
             });
           }
+          dispatch<IFetchCartAction>({
+            type: EActionTypes.fetchCart,
+            payload: tempResult,
+          });
         }
-        dispatch<IFetchCartAction>({
-          type: EActionTypes.fetchCart,
-          payload: tempResult,
-        });
-      } catch (err) {
-        dispatch<IFetchProductAction>({
-          type: EActionTypes.fetchProducts,
-          payload: [],
-        });
       }
+    } catch (err) {
+      dispatch<IFetchProductAction>({
+        type: EActionTypes.fetchProducts,
+        payload: [],
+      });
     }
   };
 };
@@ -147,7 +148,6 @@ export const emptyCart = () => {
 export const fetchToken = () => {
   const tkGet: string | null = localStorage.getItem("tk");
   const tk: IToken = { accessToken: tkGet ? tkGet : "" };
-  console.log(tk);
   return async (dispatch: Dispatch) => {
     dispatch<IFetchTokenAction>({
       type: EActionTypes.fetchToken,

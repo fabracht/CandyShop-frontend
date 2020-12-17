@@ -56,7 +56,7 @@
   }
 
   &__checkbox:checked ~ &__card {
-    transform: translate(0%, 10vh);
+    transform: translate(-50%, 10vh);
   }
 
   &__card {
@@ -66,19 +66,21 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    row-gap: 10px;
+    // row-gap: 10px;
     // display: grid;
     // grid-gap: 10px;
     // grid-template-rows: auto 1fr repeat(auto-fit, minmax(50px, 100%));
     justify-content: center;
-    padding: 5px;
+    width: clamp(700px, 100%, 1000px);
+    padding: 10px;
     background-color: rgba(#a4bf60, 1);
-    border-radius: 10px;
+    border-radius: 2px;
+    // height: 100%;
 
     & > * {
       width: 100%;
       border: 2px solid rgba(grey, 0.1);
-      padding: 3px;
+      padding: 5px;
       border-radius: 6px;
       background-color: white;
     }
@@ -152,8 +154,11 @@
     display: flex;
     flex-direction: column;
     row-gap: 5px;
-    overflow: scroll;
-    max-height: 300px;
+    overflow: auto;
+    height: 100%;
+    margin: 0;
+
+    max-height: 600px;
 
     &-item {
       display: grid;

@@ -26,31 +26,18 @@ interface PropTypes {
   fetchProducts: () => {};
   fetchCart: () => {};
   emptyCart: () => {};
-  fetchToken: () => {};
-  setToken: () => {};
 }
 
 interface StateTypes {
-  products: IProduct[];
-  cart: ICartBox[];
-  tk: IToken;
+  // products: IProduct[];
+  // cart: ICartBox[];
+  // tk: IToken;
 }
 
 class ShopMain extends Component<PropTypes, StateTypes> {
-  constructor(props: PropTypes) {
-    super(props);
-
-    this.state = {
-      products: this.props.products,
-      cart: this.props.cart,
-      tk: this.props.tk,
-    };
-  }
-
   componentDidMount() {
     this.props.fetchProducts();
     this.props.fetchCart();
-    this.props.fetchToken();
   }
 
   componentDidUpdate() {}
@@ -62,24 +49,7 @@ class ShopMain extends Component<PropTypes, StateTypes> {
           cart={this.props.cart}
           fetchCart={this.props.fetchCart}
           emptyCart={this.props.emptyCart}
-          fetchToken={this.props.fetchToken}
-          tk={this.props.tk}
         ></Header>
-        {/* <MainShopButton
-          cart={this.props.cart}
-          fetchCart={this.props.fetchCart}
-          emptyCart={this.props.emptyCart}
-          fetchToken={this.props.fetchToken}
-          tk={this.props.tk}
-        /> */}
-
-        {/* <Navigation
-          cart={this.props.cart}
-          tk={this.props.tk}
-          fetchCart={this.props.fetchCart}
-          emptyCart={this.props.emptyCart}
-          fetchToken={this.props.fetchToken}
-        /> */}
         <Content
           productList={this.props.products}
           cart={this.props.cart}

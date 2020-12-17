@@ -1,0 +1,39 @@
+$GAP: 2rem;
+
+.checkout-container {
+  width: clamp(500px, 100%, 1200px);
+  max-height: 100vh;
+  background-color: rgba(red, 0.2);
+  font-size: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: $GAP;
+  flex-direction: column;
+  border: 1px solid purple;
+  overflow: auto;
+  &-card {
+    display: flex;
+
+    flex-wrap: wrap;
+    max-width: calc(500px - 2rem); // WIDTH - GAP
+    background-color: rgba(blue, 0.3);
+    border: 1px solid red;
+    &-title {
+      border: 1px solid green;
+    }
+
+    &-description {
+      border: 1px solid blue;
+    }
+
+    &-content {
+      max-width: 80%;
+      text-align: center;
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+      border: 1px solid black;
+    }
+  }
+}

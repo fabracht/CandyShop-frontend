@@ -4,6 +4,9 @@ $container-height: 70vh;
   display: flex;
   height: 100vh;
   align-items: center;
+  @media only screen and (max-width: 1000px) {
+    align-items: center;
+  }
 
   &-container {
     position: relative;
@@ -22,12 +25,61 @@ $container-height: 70vh;
       height: clamp(300px, 100%, 600px);
       flex-wrap: wrap;
       overflow: hidden;
+      align-items: flex-end;
+    }
+  }
+}
+
+.login-signup-menu {
+  display: flex;
+  justify-content: flex-end;
+  // align-items: baseline;
+  font-size: 3rem;
+  width: 100%;
+  // height: 10%;
+  z-index: 100;
+
+  @media only screen and (min-width: 1000px) {
+    display: none;
+  }
+
+  &-group {
+    display: flex;
+    margin-right: 10px;
+    background-color: rgba(grey, 0.2);
+    // clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+    transform: skewX(-10deg);
+    color: black;
+    box-shadow: 10px 5px 5px 5px rgba(black, 0.4);
+
+    input {
+      position: absolute;
+      opacity: 0;
+    }
+    label {
+      transition: all 0.5s;
+      padding: 1rem 3rem;
+    }
+
+    input:checked + label {
+      background-color: $light_green;
     }
   }
 }
 
 .login-container {
-  min-height: 70%;
+  @keyframes fadein {
+    from {
+      opacity: 0;
+      // background-color: red;
+    }
+    to {
+      opacity: 1;
+      // background-color: yellow;
+    }
+  }
+  animation-name: fadein;
+  animation-duration: 1s;
   display: flex;
   text-align: center;
   justify-content: center;
@@ -45,13 +97,9 @@ $container-height: 70vh;
     margin: 0;
     height: 100%;
     width: 100%;
-    &:first-child {
-      left: -100%;
-    }
-    &:last-child {
-    }
   }
   &-form {
+    width: 90%;
     row-gap: 2rem;
     display: flex;
     flex-direction: column;
@@ -64,7 +112,7 @@ $container-height: 70vh;
 
     &-group {
       input {
-        width: 90%;
+        width: 100%;
         padding-left: 1rem;
       }
     }
@@ -83,7 +131,7 @@ $container-height: 70vh;
         background-color: rgba(green, 0.2);
       }
       &-input {
-        flex-basis: 20px;
+        flex-basis: 50px;
         margin-right: 1rem;
       }
     }

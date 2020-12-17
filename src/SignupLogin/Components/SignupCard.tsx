@@ -5,15 +5,12 @@ import {
 } from "react-google-recaptcha-v3";
 import { Redirect } from "react-router-dom";
 
-interface Props {
-  setToken: (token: string) => {};
-}
+interface Props {}
 interface State {
   fullName: string;
   email: string;
   password: string;
   confirmPassword: string;
-  accessToken: string;
   recaptchaToken: string | null;
   hasValidToken: boolean;
   isLoginResponseSuccess: boolean;
@@ -29,7 +26,6 @@ class SignupCard extends Component<Props, State> {
       email: "",
       password: "",
       confirmPassword: "",
-      accessToken: "",
       recaptchaToken: "",
       hasValidToken: false,
       isLoginResponseSuccess: true,
@@ -46,9 +42,10 @@ class SignupCard extends Component<Props, State> {
     const form = ev.currentTarget;
     if (form.checkValidity()) {
       try {
-        const result = await fetch("http://10.0.0.8:3030/signup", {
+        const result = await fetch("https://localhost:443/signup", {
           method: "POST",
           mode: "cors",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
@@ -67,20 +64,15 @@ class SignupCard extends Component<Props, State> {
             LoginResponse: err,
           });
         }
-
-        // console.log(resultText.headers);
-        // console.log(resultText.body);
-        // console.log(resultText.ok);
-        if (resultText?.headers?.access_token !== undefined) {
-          this.props.setToken(resultText.body.accessToken);
+        if (resultText.result === "success") {
+          // this.props.setToken(resultText.body.accessToken);
           this.setState({
             email: "",
             password: "",
-            accessToken: resultText.headers.access_token,
             hasValidToken: true,
             isLoginResponseSuccess: true,
           });
-        } else if (resultText.ok === false) {
+        } else {
           this.setState({
             isLoginResponseSuccess: false,
           });
@@ -132,15 +124,15 @@ class SignupCard extends Component<Props, State> {
       return <Redirect to="/loja" />;
     }
     return (
-      <div className="login-container">
+      <div className="signup-container">
         <GoogleReCaptcha onVerify={this.setCaptchaToken} />
         <form
-          className="login-container-form"
+          className="signup-container-form"
           method="post"
           onSubmit={this.handleSignup}
         >
-          <h2 className="login-container-form-title">Create an account</h2>
-          <div className="login-container-form-group">
+          <h2 className="signup-container-form-title">Create an account</h2>
+          <div className="signup-container-form-group">
             <input
               className="form-control"
               type="text"
@@ -152,7 +144,7 @@ class SignupCard extends Component<Props, State> {
               onChange={this.handleChange}
             />
           </div>
-          <div className="login-container-form-group">
+          <div className="signup-container-form-group">
             <input
               className="form-control"
               type="email"
@@ -164,7 +156,7 @@ class SignupCard extends Component<Props, State> {
             />
             <span>{this.state.LoginResponse}</span>
           </div>
-          <div className="login-container-form-group">
+          <div className="signup-container-form-group">
             <input
               className="form-control"
               type="password"
@@ -176,7 +168,7 @@ class SignupCard extends Component<Props, State> {
               onChange={this.handleChange}
             />
           </div>
-          <div className="login-container-form-group">
+          <div className="signup-container-form-group">
             <input
               className="form-control"
               type="password"
@@ -188,19 +180,19 @@ class SignupCard extends Component<Props, State> {
               onChange={this.handleChange}
             />
           </div>
-          <div className="login-container-form-group">
-            <div className="login-container-form-check">
+          <div className="signup-container-form-group">
+            <div className="signup-container-form-check">
               <input
-                className="login-container-form-check-input"
+                className="signup-container-form-check-input"
                 type="checkbox"
                 required={true}
-              />
-              <label className="login-container-form-check-label">
+              ></input>
+              <label className="signup-container-form-check-label">
                 I agree to the license terms.
               </label>
             </div>
           </div>
-          <div className="login-container-form-group">
+          <div className="signup-container-form-group">
             <button
               className="btn"
               data-toggle="tooltip"

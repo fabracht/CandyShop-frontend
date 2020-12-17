@@ -1,17 +1,14 @@
 import React, { Component, FormEvent, ChangeEvent } from "react";
 // import LoginButton from "./LoginButton";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { GoogleReCaptcha } from "react-google-recaptcha-v3";
 import { withGoogleReCaptcha } from "react-google-recaptcha-v3";
 
-interface Props {
-  setToken: (token: string) => {};
-}
+interface Props {}
 
 interface State {
   email: string;
   password: string;
-  accessToken: string;
   recaptchaToken: string | null;
   hasValidToken: boolean;
   isLoginResponseSuccess: boolean;
@@ -24,7 +21,6 @@ class LoginCard extends Component<Props, State> {
     this.state = {
       email: "",
       password: "",
-      accessToken: "",
       recaptchaToken: "",
       hasValidToken: false,
       isLoginResponseSuccess: true,
@@ -41,16 +37,17 @@ class LoginCard extends Component<Props, State> {
 
     const inputs = ev.currentTarget.querySelectorAll("input");
     const emailField = inputs[0];
-    // const passwordField = inputs[1];
 
     const form = ev.currentTarget;
     if (form.checkValidity()) {
       try {
-        const result = await fetch("http://10.0.0.8:3030/login", {
+        const result = await fetch("https://localhost:443/login", {
           method: "POST",
           mode: "cors",
+          credentials: "include",
+          cache: "no-cache",
           headers: {
-            "Content-Type": "application/json",
+            "content-type": "application/json",
           },
           body: JSON.stringify({
             email: emailField.value,
@@ -58,17 +55,15 @@ class LoginCard extends Component<Props, State> {
             recaptchaToken: this.state.recaptchaToken,
           }),
         });
+        console.log(result);
         const resultText = await result.json();
-        if (resultText.status === "success") {
-          console.log(resultText.headers);
+        if (resultText.result === "success") {
           this.setState({
             email: "",
             password: "",
-            accessToken: resultText.headers.access_token,
             hasValidToken: true,
             isLoginResponseSuccess: true,
           });
-          this.props.setToken(resultText.headers.access_token);
         } else {
           this.setState({
             isLoginResponseSuccess: false,
@@ -151,9 +146,9 @@ class LoginCard extends Component<Props, State> {
             </button>
             {/* <LoginButton /> */}
           </div>
-          <a className="login-container-form-forgot" href="/">
+          <Link className="login-container-form-forgot" to="/reset">
             Forgot your email or password?
-          </a>
+          </Link>
         </form>
       </div>
     );
@@ -161,4 +156,3 @@ class LoginCard extends Component<Props, State> {
 }
 
 export const LoginRecaptcha = withGoogleReCaptcha(LoginCard);
-// export const LoginRecaptcha = LoginCard;

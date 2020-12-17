@@ -183,9 +183,6 @@ class Content extends Component<Props, State> {
             {productTypes.map((el) =>
               el ? this.cardGenerator(el) : undefined
             )}
-            {/* {this.cardGenerator("cake")}
-            {this.cardGenerator("bonbon")}
-            {this.cardGenerator("taffy")} */}
           </div>
         </div>
       </div>

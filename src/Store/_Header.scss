@@ -1,4 +1,9 @@
 @import "../sass/abstracts/variables";
+
+#avatar-img {
+  border-radius: 100%;
+}
+
 .shop-header {
   position: relative;
   display: flex;
@@ -22,8 +27,19 @@
       font-size: 4rem;
       text-shadow: 5px 5px 3.5px rgba(grey, 1);
     }
+
     p {
       font-size: 2rem;
+    }
+    .avatar-container {
+      img {
+        box-shadow: 5px 5px 3.5px rgba(grey, 1);
+        width: 4rem;
+      }
+      p {
+        font-size: 1.9rem;
+        text-shadow: 5px 5px 3.5px rgba(grey, 1);
+      }
     }
   }
 

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
 import { App as SignupLogin } from "./SignupLogin/SignupLogin";
+import { Reset } from "./SignupLogin/Reset";
+import { Checkout } from "./Store/Checkout";
 // import Home from "./Home/Home";
 
 import { App as ShopMain } from "./Store/ShopMain";
@@ -34,7 +36,8 @@ class App extends Component<PropTypes, StateTypes> {
     return (
       <Router>
         <Switch>
-          {/* <Route path="/" component={Home} exact /> */}
+          <Route path="/checkout" component={Checkout} exact />
+          <Route path="/reset" component={Reset} exact />
           <Route path="/signup" component={SignupLogin} exact />
           <Route
             path="/"
