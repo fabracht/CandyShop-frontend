@@ -6,6 +6,10 @@ In the project directory, you can run:
 
 ### `yarn start`
 
+The backend is configured to accept requests from an https address, so, if you plan on using the backend (which I highly recommend) you can run:
+
+### `HTTPS=true yarn start`
+
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 

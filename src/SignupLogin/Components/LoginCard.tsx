@@ -11,6 +11,7 @@ interface State {
   password: string;
   recaptchaToken: string | null;
   hasValidToken: boolean;
+  isLoginProcessing: boolean;
   isLoginResponseSuccess: boolean;
 }
 
@@ -23,6 +24,7 @@ class LoginCard extends Component<Props, State> {
       password: "",
       recaptchaToken: "",
       hasValidToken: false,
+      isLoginProcessing: false,
       isLoginResponseSuccess: true,
     };
     this.handleLogin = this.handleLogin.bind(this);
@@ -55,17 +57,24 @@ class LoginCard extends Component<Props, State> {
             recaptchaToken: this.state.recaptchaToken,
           }),
         });
-        console.log(result);
+        // SET THE PROCESSING STATE TO TRUE
+        this.setState({
+          isLoginProcessing: true,
+        });
+
         const resultText = await result.json();
+
         if (resultText.result === "success") {
           this.setState({
             email: "",
             password: "",
             hasValidToken: true,
+            isLoginProcessing: false,
             isLoginResponseSuccess: true,
           });
         } else {
           this.setState({
+            isLoginProcessing: false,
             isLoginResponseSuccess: false,
           });
         }
@@ -104,7 +113,7 @@ class LoginCard extends Component<Props, State> {
 
   render() {
     if (this.state.hasValidToken) {
-      return <Redirect to="/loja" />;
+      return <Redirect to="/store" />;
     }
     return (
       <div className="login-container">
@@ -141,8 +150,9 @@ class LoginCard extends Component<Props, State> {
               data-bs-tooltip=""
               type="submit"
               title="I log you in"
+              disabled={this.state.isLoginProcessing}
             >
-              Log In
+              {this.state.isLoginProcessing ? "Sending Electrons" : "Login"}
             </button>
             {/* <LoginButton /> */}
           </div>

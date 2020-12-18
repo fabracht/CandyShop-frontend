@@ -121,7 +121,7 @@ class SignupCard extends Component<Props, State> {
 
   render() {
     if (this.state.hasValidToken) {
-      return <Redirect to="/loja" />;
+      return <Redirect to="/store" />;
     }
     return (
       <div className="signup-container">

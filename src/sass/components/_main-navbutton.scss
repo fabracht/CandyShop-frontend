@@ -8,11 +8,11 @@
     height: 7rem;
     width: 7rem;
     position: fixed;
-    top: 2rem;
-    right: 3rem;
+    top: 6rem;
+    right: 6rem;
     border-radius: 50%;
     z-index: $z-high3;
-    box-shadow: 0 1.5rem 3rem rgba($black_coffee, .6);
+    box-shadow: 0 1.5rem 3rem rgba($black_coffee, 0.6);
     text-align: center;
 
     @include respond(tab-port) {
@@ -35,7 +35,7 @@
     right: 6.5rem;
     background-image: radial-gradient($light-pink, $light-green);
     z-index: $z-high1;
-    transition: transform .2s cubic-bezier(0.83, 0, 0.17, 1);
+    transition: transform 0.2s cubic-bezier(0.83, 0, 0.17, 1);
 
     @include respond(tab-port) {
       top: 5.5rem;
@@ -57,7 +57,7 @@
     z-index: $z-high2;
     opacity: 0;
     width: 0;
-    transition: all .2s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    transition: all 0.2s cubic-bezier(0.68, -0.6, 0.32, 1.6);
   }
 
   &__list {
@@ -79,9 +79,14 @@
       font-size: 3rem;
       text-decoration: none;
       color: $white;
-      background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $white 50%);
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        $white 50%
+      );
       background-size: 240%;
-      transition: all .4s;
+      transition: all 0.4s;
     }
 
     &:hover,
@@ -91,13 +96,12 @@
     }
   }
 
-
   // FUNCTIONALITY
-  &__checkbox:checked~&__background {
+  &__checkbox:checked ~ &__background {
     transform: scale(80);
   }
 
-  &__checkbox:checked~&__nav {
+  &__checkbox:checked ~ &__nav {
     opacity: 1;
     width: 100%;
   }
@@ -113,7 +117,7 @@
       height: 2px;
       background-color: $black_coffee;
       display: inline-block;
-      transition: all .2s;
+      transition: all 0.2s;
     }
 
     &::after,
@@ -124,11 +128,11 @@
     }
 
     &::before {
-      top: .9rem;
+      top: 0.9rem;
     }
 
     &::after {
-      top: -.9rem;
+      top: -0.9rem;
     }
   }
 
@@ -140,22 +144,22 @@
     top: -1.1rem;
   }
 
-  &__checkbox:checked+&__button &__icon {
+  &__checkbox:checked + &__button &__icon {
     background-color: transparent;
     transform: rotate(180deg);
   }
 
-  &__checkbox:checked+&__button &__icon:before {
+  &__checkbox:checked + &__button &__icon:before {
     transform: rotate(45deg);
     top: 0;
   }
 
-  &__checkbox:checked+&__button &__icon:after {
+  &__checkbox:checked + &__button &__icon:after {
     transform: rotate(-45deg);
     top: 0;
   }
 
-  &__checkbox:not(:checked)~&__nav &__link {
+  &__checkbox:not(:checked) ~ &__nav &__link {
     pointer-events: none;
   }
 }

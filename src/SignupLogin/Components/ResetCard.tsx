@@ -71,7 +71,7 @@ export default function ResetCard() {
   };
 
   if (hasValidToken) {
-    return <Redirect to="/loja" />;
+    return <Redirect to="/store" />;
   }
   return (
     <div className="login-container">

@@ -6,7 +6,11 @@
 @import "abstracts/variables";
 
 @import "base/base";
-// @import "base/animation";
+@import "base/animation";
+
+@import "../SignupLogin/index";
+@import "pages/home";
+
 // @import "base/typography";
 // @import "base/utilities";
 
@@ -24,7 +28,3 @@
 // @import "layout/footer";
 // @import "layout/header";
 // @import "layout/grid";
-@import "../SignupLogin/index";
-
-
-// @import "pages/home";

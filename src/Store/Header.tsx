@@ -31,7 +31,6 @@ export function Header(props: Props) {
     })
       .then((result) => result.json())
       .then((resultJson) => {
-        console.log(resultJson);
         if (resultJson.result === "success") {
           setIsLoggedIn(true);
           setAvatarPath(resultJson.data.avatar);
@@ -78,7 +77,6 @@ export function Header(props: Props) {
         },
       });
       const resultJson = await result.json();
-      console.log(resultJson);
       if (resultJson.result === "success") {
         setIsLoggedIn(false);
       }
@@ -89,7 +87,7 @@ export function Header(props: Props) {
 
   return (
     <div className="shop-header">
-      <Link to="/home" className="shop-header__item">
+      <Link to="/" className="shop-header__item">
         <i className="fa fa-home"></i>
         <p>HOME</p>
       </Link>

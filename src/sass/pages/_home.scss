@@ -1,10 +1,12 @@
+@import "../components/main-navbutton";
+@import "../layout/header";
+@import "../base/typography";
+
 .section-about {
   background-color: $light-grey;
   padding: 5rem 0;
   height: 100vh;
   align-items: center;
-
-
 
   @include respond(tab-port) {
     padding: 5rem 0;
@@ -20,16 +22,18 @@
 .section-features {
   padding: 15rem 0;
   height: 100vh;
-  background-image: linear-gradient(to right bottom,
+  background-image: linear-gradient(
+      to right bottom,
       rgba($light-green, 0.8),
-      rgba($beige, 0.8)),
+      rgba($beige, 0.8)
+    ),
     url("../img/men_doc/fundo1.png");
   background-size: cover;
   transform: skewY(-5deg);
   margin-top: -9vh;
 
-  &>* {
-    transform: skewY(5deg)
+  & > * {
+    transform: skewY(5deg);
   }
 
   @include respond(tab-port) {
@@ -57,7 +61,6 @@
     padding: 1.5rem 0;
     margin: 3rem 0.5rem;
   }
-
 }
 
 .section-stories {
@@ -77,7 +80,11 @@
 
 .section-signup {
   padding: 15rem 15rem;
-  background-image: linear-gradient(to right bottom, $light-green, $light-beige);
+  background-image: linear-gradient(
+    to right bottom,
+    $light-green,
+    $light-beige
+  );
 
   @include respond(tab-port) {
     padding: 3rem 0;
@@ -91,16 +98,27 @@
 }
 
 .signup {
-  background-image: linear-gradient(105deg, rgba($light-grey, 0.8) 0%, rgba($light-grey, 0.7) 50%, transparent 50%), url("../img/men_doc/diana-kulenyuk-oIR-PrUuFas-unsplash.jpg");
+  background-image: linear-gradient(
+      105deg,
+      rgba($light-grey, 0.8) 0%,
+      rgba($light-grey, 0.7) 50%,
+      transparent 50%
+    ),
+    url("../img/men_doc/diana-kulenyuk-oIR-PrUuFas-unsplash.jpg");
   background-size: cover;
-  box-shadow: 0 1.5rem 4rem rgba(black, .25);
+  box-shadow: 0 1.5rem 4rem rgba(black, 0.25);
   width: 100%;
   height: 50rem;
   margin: 0 auto;
   padding: 5rem 5rem;
 
   @include respond(tab-port) {
-    background-image: linear-gradient(90deg, rgba($light-grey, 0.8) 0%, rgba($light-grey, 0.8)), url("../img/men_doc/diana-kulenyuk-oIR-PrUuFas-unsplash.jpg");
+    background-image: linear-gradient(
+        90deg,
+        rgba($light-grey, 0.8) 0%,
+        rgba($light-grey, 0.8)
+      ),
+      url("../img/men_doc/diana-kulenyuk-oIR-PrUuFas-unsplash.jpg");
     background-color: rgba($light-grey, 0.7);
 
     padding: 3rem 3rem;

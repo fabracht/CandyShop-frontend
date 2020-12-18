@@ -12,6 +12,7 @@ import {
   Route,
   // Link,
 } from "react-router-dom";
+import Home from "./Home/Home";
 
 interface PropTypes {}
 
@@ -36,11 +37,12 @@ class App extends Component<PropTypes, StateTypes> {
     return (
       <Router>
         <Switch>
+          <Route path="/" component={Home} exact />
           <Route path="/checkout" component={Checkout} exact />
           <Route path="/reset" component={Reset} exact />
           <Route path="/signup" component={SignupLogin} exact />
           <Route
-            path="/"
+            path="/store"
             component={ShopMain}
             products={this.state.products}
             cart={this.state.cart}

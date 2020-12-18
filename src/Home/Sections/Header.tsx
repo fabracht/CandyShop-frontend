@@ -1,5 +1,5 @@
 import React from "react";
-import BToStore from "./Sections/ButtonToStore";
+import BToStore from "./ButtonToStore";
 
 function Header() {
   return (
