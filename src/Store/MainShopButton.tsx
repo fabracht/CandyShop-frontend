@@ -68,12 +68,12 @@ export function MainShopButton(props: Props) {
     const [qty] = cartObject
       .filter((el, i) => el.product._id === id)
       .map((curr, ind) => curr.quantity);
-    const stringBox = `${id}-${qty}`;
     const localCart = localStorage.getItem("mendocCart");
     const cartArr = localCart?.split(",");
-    if (qty === 1) {
+    if (qty > 1) {
+      const stringBox = `${id}-${qty}`;
       const updatedCart = cartArr
-        ?.map((el) => (el === stringBox ? undefined : el))
+        ?.map((el) => (el === stringBox ? `${id}-${qty - 1}` : el))
         .filter((el) => el);
       const cartString = updatedCart?.toString();
       localStorage.setItem("mendocCart", cartString!);

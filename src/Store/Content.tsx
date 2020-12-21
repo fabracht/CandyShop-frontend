@@ -177,15 +177,25 @@ class Content extends Component<Props, State> {
       }
     );
     return (
-      <div className="shop-content">
-        <div className="candy-section">
-          <div className="candy-section-cards">
-            {productTypes.map((el) =>
-              el ? this.cardGenerator(el) : undefined
-            )}
+      <>
+        <div className="shop-content__filter">
+          <ul className="filter-list">
+            <li className="filter-list-item">filter-1</li>
+            <li className="filter-list-item">filter-2</li>
+            <li className="filter-list-item">filter-3</li>
+            <li className="filter-list-item">filter-4</li>
+          </ul>
+        </div>
+        <div className="shop-content">
+          <div className="candy-section">
+            <div className="candy-section-cards">
+              {productTypes.map((el) =>
+                el ? this.cardGenerator(el) : undefined
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

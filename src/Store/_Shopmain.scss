@@ -1,5 +1,33 @@
 body {
   overflow: hidden;
+  margin: 0;
+}
+
+.shop-main {
+  .shop-content__filter {
+    position: relative;
+
+    z-index: 1000;
+    top: 20px;
+    background: url("./assets/dripping_chocolate.svg");
+
+    background-size: contain;
+    height: 50px;
+    width: 100%;
+
+    .filter-list {
+      position: relative;
+      top: -40%;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      font-size: 3rem;
+      background-image: linear-gradient(white, rgba(#81623e, 1));
+    }
+  }
 }
 
 @import "./Header";

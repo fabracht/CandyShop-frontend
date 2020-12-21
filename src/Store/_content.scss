@@ -1,13 +1,13 @@
-// @import "../sass/abstracts/variables";
-
 .shop-content {
   overflow: scroll;
   text-align: center;
   position: relative;
+  padding-top: 50px;
   height: 90vh;
   display: grid;
   place-items: center;
   width: 100%;
+  background-image: url("./assets/Colorful-Stingrays.svg");
 
   & h2 {
     font-size: 4rem;

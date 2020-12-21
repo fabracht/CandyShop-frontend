@@ -44,7 +44,7 @@ class ShopMain extends Component<PropTypes, StateTypes> {
 
   render(): JSX.Element {
     return (
-      <div>
+      <div className="shop-main">
         <Header
           cart={this.props.cart}
           fetchCart={this.props.fetchCart}
