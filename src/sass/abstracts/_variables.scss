@@ -43,20 +43,5 @@ $gutter_vertical_xsmall: 2rem;
 ///////////////////////
 // FONTS
 //////////////////////
-$font-bhatoshineRegular: "BhatoshineRegular";
-$font-acmeGothic: "acme-gothic";
 
 $default-font-size: 1.6rem;
-
-@font-face {
-  font-family: "BhatoshineRegular";
-  src: url("../fonts/bhatoshine_regular.otf");
-}
-
-@font-face {
-  font-family: "acme-gothic";
-  src: url("https://use.typekit.net/jyc1eec.css");
-  font-weight: 700;
-  font-style: normal;
-  /* IE9 Compat Modes */
-}

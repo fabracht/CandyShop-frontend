@@ -1,41 +1,54 @@
 .footer {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  justify-content: space-around;
   background-color: $black_coffee;
   padding: 0 3rem;
   font-size: 1.4rem;
 
+  &__logo-about {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
+    .footer__logo-box {
+      display: flex;
+      justify-content: center;
 
-  &__logo-box {
-    height: 15rem;
-    width: 20rem;
-    margin: 0 auto;
-  }
-
-  &__logo {
-    height: 15rem;
-  }
-
-  &__navigation {
-    border-top: 3px solid $white;
-    padding-top: 1rem;
-    display: inline-block;
-
-    @include respond(tab-port) {
-      width: 100%;
-      text-align: center;
-      padding-top: 1rem;
+      // height: 15rem;
+      // width: 20rem;
+      // margin: 0 auto;
     }
 
-    @include respond(phone) {
-      width: 100%;
-      text-align: center;
-      padding-top: 1rem;
+    .footer__logo {
+      // height: 1rem;
+      width: 100px;
+    }
+    .footer__navigation {
+      border-top: 3px solid $white;
+      display: inline-block;
+
+      @include respond(tab-port) {
+        width: 100%;
+        text-align: center;
+        padding-top: 1rem;
+      }
+
+      @include respond(phone) {
+        width: 100%;
+        text-align: center;
+        padding-top: 1rem;
+      }
     }
   }
 
   &__list {
     list-style: none;
-
+    text-align: center;
+    margin: 0;
+    padding: 0;
     @include respond(tab-port) {
       width: 100%;
       text-align: center;
@@ -56,7 +69,6 @@
   }
 
   &__link {
-
     &:link,
     &:visited {
       color: $light_grey;
@@ -69,21 +81,29 @@
     &:active {
       color: $light_green;
     }
-
   }
 
-  &__copyright {
-    padding-left: 3rem;
-    padding-top: 1rem;
-    display: inline-block;
-    justify-content: right;
-    border-top: 3px solid white;
-    padding-top: 1rem;
-  }
+  &__socialmedia-copyright {
+    // font-size: 2rem;
+    display: flex;
 
-  &__socialmedia {
-    margin-right: 7rem;
+    flex-direction: column;
 
+    .copyright {
+      margin: 0;
+      padding: 0;
+      border-top: 3px solid white;
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .socialmedia {
+      font-size: 4rem;
+      margin: 0;
+      padding: 0;
+    }
     @include respond(tab-port) {
       width: 100%;
       text-align: center;

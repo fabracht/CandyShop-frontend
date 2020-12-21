@@ -1,5 +1,8 @@
+@import "../fonts/bathoshine-duo/stylesheet.scss";
+@import "../fonts/terfens-regular/stylesheet.scss";
+
 body {
-  font-family: $font-acmeGothic, sans-serif;
+  font-family: "terfensregular", "bhatoshineregular";
   font-size: $default-font-size;
   line-height: 1.7;
   color: $dark_grey;
@@ -16,7 +19,7 @@ body {
   // MAIN
   //////////////////////
   &--main {
-    font-family: $font-bhatoshineRegular;
+    font-family: "bhatoshineregular";
     display: block;
     font-size: 10rem;
     letter-spacing: 1.5rem;
@@ -40,7 +43,7 @@ body {
   // SUB
   //////////////////////
   &--sub {
-    font-family: $font-bhatoshineRegular;
+    font-family: "bhatoshineregular";
     display: block;
     font-size: 2rem;
     letter-spacing: 1.2rem;
@@ -106,7 +109,7 @@ body {
   //////////////////////
   &--main {
     position: relative;
-    font-family: $font-bhatoshineRegular;
+    font-family: "bhatoshineregular";
     display: block;
     font-size: 8rem;
     text-transform: lowercase;
