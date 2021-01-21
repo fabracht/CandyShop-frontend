@@ -41,13 +41,13 @@ $color-yellow: #e5c468;
           cursor: pointer;
           background-color: white;
           border-radius: 10px;
-          padding: 5px 10px;
+          padding: 10px 16px;
         }
-
+        
         &-label:hover {
           background-color: #DD7F72;
           border-radius: 10px;
-          padding: 5px 10px;
+          padding: 10px 16px;
         }
 
         &-input:checked ~ .filter-list-item-label {

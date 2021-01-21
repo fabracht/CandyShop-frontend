@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { isCompositeComponentWithType } from "react-dom/test-utils";
 import { IProduct, ICartBox, EProductType } from "../../src/actions";
 
 interface Props {
@@ -12,6 +13,7 @@ interface State {
   displayCard: number;
   products: IProduct[];
   cartObject: ICartBox[];
+  productTypes: (EProductType | undefined)[];
 }
 
 class Content extends Component<Props, State> {
@@ -21,11 +23,13 @@ class Content extends Component<Props, State> {
       displayCard: 1,
       products: props.productList,
       cartObject: props.cart,
+      productTypes: Object.values(EProductType).map(el => el as EProductType).filter(el => typeof el === "string").sort()
     };
 
     this.nextSlide = this.nextSlide.bind(this);
     this.prevSlide = this.prevSlide.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.filterChecked = this.filterChecked.bind(this);
   }
 
   static getDerivedStateFromProps(nextProps: Props, prevState: State) {
@@ -38,6 +42,26 @@ class Content extends Component<Props, State> {
   componentDidMount() { }
 
   componentDidUpdate(prevProps: Props, prevState: State) { }
+  filterChecked(ev: React.SyntheticEvent<HTMLInputElement>): void {
+    const value = ev.currentTarget.value;
+    console.log(value);
+    let newProductTypesList = new Array(...this.state.productTypes);
+    let slicedList = [];
+    if (ev.currentTarget.checked) {
+      if (!newProductTypesList.includes(value)) {
+        slicedList = newProductTypesList.concat([value]).sort();
+      }
+    } else {
+      if (newProductTypesList.includes(value)) {
+        let indexOfValue = newProductTypesList.indexOf(value);
+        slicedList = newProductTypesList.slice(0, indexOfValue).concat(newProductTypesList.slice(indexOfValue + 1)).sort();
+      }
+    }
+    this.setState({
+      productTypes: slicedList
+    });
+
+  }
 
   addToCart(ev: React.MouseEvent<HTMLButtonElement>): void {
     ev.preventDefault();
@@ -168,28 +192,20 @@ class Content extends Component<Props, State> {
   }
 
   render() {
-    const productTypes = Object.values(EProductType).map(
-      (el: string | number) => {
-        if (typeof el === "string") {
-          return el;
-        }
-        return undefined;
-      }
-    );
     return (
       <>
         <div className="shop-content__filter">
           <ul className="filter-list">
             <li className="filter-list-item">
-              <input className="filter-list-item-input" type="checkbox" id="bonbons" name="filter" value="bonbons" />
-              <label className="filter-list-item-label" htmlFor="bonbons">Bonbons</label>
+              <input className="filter-list-item-input" defaultChecked={true} type="checkbox" id="bonbon" name="filter" value="bonbon" onChange={this.filterChecked} />
+              <label className="filter-list-item-label" htmlFor="bonbon">Bonbons</label>
             </li>
             <li className="filter-list-item">
-              <input className="filter-list-item-input" type="checkbox" id="cakes" name="filter" value="cakes" />
-              <label className="filter-list-item-label" htmlFor="cakes">Cakes</label>
+              <input className="filter-list-item-input" defaultChecked={true} type="checkbox" id="cake" name="filter" value="cake" onChange={this.filterChecked} />
+              <label className="filter-list-item-label" htmlFor="cake">Cakes</label>
             </li>
             <li className="filter-list-item">
-              <input className="filter-list-item-input" type="checkbox" id="taffy" name="filter" value="taffy" />
+              <input className="filter-list-item-input" defaultChecked={true} type="checkbox" id="taffy" name="filter" value="taffy" onChange={this.filterChecked} />
               <label className="filter-list-item-label" htmlFor="taffy">Coconut Taffy</label>
             </li>
             <li className="filter-list-item">
@@ -207,8 +223,8 @@ class Content extends Component<Props, State> {
         <div className="shop-content">
           <div className="candy-section">
             <div className="candy-section-cards">
-              {productTypes.map((el) =>
-                el ? this.cardGenerator(el) : undefined
+              {this.state.productTypes.map((el) =>
+                el ? this.cardGenerator(el.toString()) : undefined
               )}
             </div>
           </div>
