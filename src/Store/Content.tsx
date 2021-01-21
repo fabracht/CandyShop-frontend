@@ -35,9 +35,9 @@ class Content extends Component<Props, State> {
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
 
-  componentDidUpdate(prevProps: Props, prevState: State) {}
+  componentDidUpdate(prevProps: Props, prevState: State) { }
 
   addToCart(ev: React.MouseEvent<HTMLButtonElement>): void {
     ev.preventDefault();
@@ -180,10 +180,28 @@ class Content extends Component<Props, State> {
       <>
         <div className="shop-content__filter">
           <ul className="filter-list">
-            <li className="filter-list-item">filter-1</li>
-            <li className="filter-list-item">filter-2</li>
-            <li className="filter-list-item">filter-3</li>
-            <li className="filter-list-item">filter-4</li>
+            <li className="filter-list-item">
+              <input className="filter-list-item-input" type="checkbox" id="bonbons" name="filter" value="bonbons" />
+              <label className="filter-list-item-label" htmlFor="bonbons">Bonbons</label>
+            </li>
+            <li className="filter-list-item">
+              <input className="filter-list-item-input" type="checkbox" id="cakes" name="filter" value="cakes" />
+              <label className="filter-list-item-label" htmlFor="cakes">Cakes</label>
+            </li>
+            <li className="filter-list-item">
+              <input className="filter-list-item-input" type="checkbox" id="taffy" name="filter" value="taffy" />
+              <label className="filter-list-item-label" htmlFor="taffy">Coconut Taffy</label>
+            </li>
+            <li className="filter-list-item">
+              <div className="dropdown">
+                <button className="dropbtn">Sort</button>
+                <ul className="dropdown-content">
+                  <li className="dropdown-content-item">Name</li>
+                  <li className="dropdown-content-item">Price Ascending</li>
+                  <li className="dropdown-content-item">Price Descending</li>
+                </ul>
+              </div>
+            </li>
           </ul>
         </div>
         <div className="shop-content">

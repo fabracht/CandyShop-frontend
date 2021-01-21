@@ -2,12 +2,15 @@
   overflow: scroll;
   text-align: center;
   position: relative;
-  padding-top: 50px;
+  padding-top: 10px;
+  // padding-bottom: 10vh;
   height: 90vh;
   display: grid;
   place-items: center;
   width: 100%;
-  background-image: url("./assets/Colorful-Stingrays.svg");
+  background-image: linear-gradient(white, transparent),
+    url("./assets/Colorful-Stingrays.svg");
+  background-blend-mode: lighten;
 
   & h2 {
     font-size: 4rem;
@@ -25,6 +28,7 @@
   justify-content: center;
   align-content: center;
   padding: 1rem;
+  padding-bottom: 25vh;
 
   &-cards {
     // overflow: auto scroll;

@@ -9,12 +9,12 @@
   display: flex;
   text-align: center;
   text-transform: uppercase;
-  padding: 5rem 3rem;
+  padding: 7rem 3rem;
 
   justify-content: space-around;
   place-items: center;
   background-image: url("./assets/MeninasDoceiras-Capa-SemLogo.svg");
-  background-size: cover;
+  background-size: 100vw;
   background-repeat: no-repeat;
   background-position: center top;
 
@@ -82,113 +82,3 @@
     transform: translate(-25%, 0);
   }
 }
-
-// .shop-header {
-//   position: relative;
-//   display: flex;
-//   width: 100%;
-
-//   // @include respond(phone-land) {
-//   //   height: 35vh;
-//   // }
-
-//   // @include respond(phone) {
-//   //   height: 35vh;
-//   // }
-
-//   &__background {
-//     position: absolute;
-//     height: 200px;
-//     background-image: url("./assets/MeninasDoceiras-Capa-SemLogo.png");
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     background-position: center top;
-
-//     // @include respond(tab-port) {
-//     //   background-size: 45%, cover;
-//     //   background-position: 50% 25%;
-//     // }
-
-//     // @include respond(phone-land) {
-//     //   background-size: 30%, cover;
-//     //   background-position: 50% 25%;
-//     // }
-
-//     // @include respond(phone) {
-//     //   background-size: 70%, cover;
-//     //   background-position: 50% 25%;
-//     // }
-//   }
-
-//   // clip-path: polygon(0 5vh, 100% 0, 100% 95vh, 0 100%);
-//   & a {
-//     color: darken(grey, 1);
-//   }
-
-//   ///////////////////////
-//   // HOME BOX
-//   //////////////////////
-//   &__logo {
-//     // position: absolute;
-//     // top: 50%;
-//     // left: 6%;
-//     font-size: 5rem;
-//     transform: translate(-50%, -50%);
-//     text-align: center;
-
-//     p {
-//       font-size: 2rem;
-//     }
-//   }
-
-//   ///////////////////////
-//   // LOGIN BOX
-//   //////////////////////
-//   &__login {
-//     // position: absolute;
-//     // top: 50%;
-//     // right: 10%;
-//     font-size: 5rem;
-//     transform: translate(-50%, -50%);
-//     text-align: center;
-
-//     p {
-//       font-size: 2rem;
-//     }
-//   }
-
-//   ///////////////////////
-//   // TEXT BOX
-//   //////////////////////
-//   &__text-box {
-//     height: 40%;
-//     width: 60%;
-//     position: absolute;
-//     top: 20%;
-//     left: 50%;
-//     transform: translate(-50%, 0%);
-//     text-align: center;
-
-//     // @include respond(tab-port) {
-//     //   transform: translate(-45%, 0%);
-//     // }
-
-//     // @include respond(phone-land) {
-//     //   transform: translate(-50%, 0%);
-//     //   width: 90%;
-//     // }
-
-//     // @include respond(phone) {
-//     //   transform: translate(-50%, 0%);
-//     //   width: 90%;
-//     // }
-//   }
-// }
-
-// // & > .cart-items {
-// //   position: absolute;
-// //   font-size: 2rem;
-// //   color: white;
-// //   border: 1px solid blue;
-// //   transform: translate(0%, 0%);
-// // }
