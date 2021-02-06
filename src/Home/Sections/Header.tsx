@@ -1,108 +1,124 @@
-import React, { CSSProperties } from "react";
+import React from "react";
+import Radium from "radium";
 
 // import Radium from "radium";
 import BToStore from "../Components/ButtonToStore";
 
 import BackgroundImage from "../../assets/LogoPrincipal.svg";
 import myColors from "../../assets/color";
-const styles = {
+
+
+
+const styles: Radium.StyleRules = {
   base: {
     position: "relative",
     height: "85vh",
-  } as CSSProperties,
+    overflow: "hidden",
+    "@media (max-width: 900px)": {
+      height: "100vh",
+      lineHeight: "20px",
+    },
+  },
   header__background: {
     height: "100%",
     backgroundImage: `url(${BackgroundImage}`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center top",
-  } as CSSProperties,
+    display: "flex",
+    placeContent: "center",
+    placeItems: "flex-end",
+    paddingBottom: "5%",
+    "@media (max-width: 900px)": {
+      paddingBottom: "15px",
+    }
+  },
   header__textbox: {
-    position: "relative",
-    top: "50%",
+    fontSize: "4rem",
     display: "flex",
     flexWrap: "wrap",
     flexDirection: "column",
     textAlign: "center",
     alignContent: "center",
-  } as CSSProperties,
+    "@media (max-width: 600px)": {
+      paddingBottom: "30%",
+    },
+  },
   heading__primary: {
     color: myColors.brownColor,
     textTransform: "uppercase",
     backfaceVisibility: "hidden",
     marginBottom: "2.5rem",
-  } as CSSProperties,
-  heading__primary__main: {
     fontFamily: "bhatoshineregular",
-    display: "block",
-    fontSize: "10rem",
     letterSpacing: "1.5rem",
+    lineHeight: "6rem",
+    "@media (max-width: 900px)": {
+      marginBottom: "0",
+    }
+  },
+  heading__primary__main: {
+    display: "block",
     textTransform: "lowercase",
     animationName: "easeOutBounce-left",
     animationDuration: ".5s",
-  } as CSSProperties,
-  heading__primary__sub: {
-    fontFamily: "bhatoshineregular",
-    display: "block",
-    fontSize: "2rem",
-    letterSpacing: "1.2rem",
-    lineHeight: "6rem",
-    animationName: "easeOutBounce-right",
-    animationDuration: ".5s",
-  } as CSSProperties
-};
-
-const buttonStyles = {
-  base: {
-    textTransform: "uppercase",
-    textDecoration: "none",
-    padding: "1rem 2rem",
-    maxWidth: "clamp(150px, 100%, 300px)",
-    borderRadius: "10rem",
-    transition: "all 0.2s",
-    fontSize: "2rem",
-    border: "none",
-    cursor: "pointer",
-    backgroundColor: myColors.greenColor,
-    color: "black",
-    position: "relative",
-    left: "20vw",
-    ":hover": {
-      transform: "translate(0, -5px)",
-      boxShadow: "0 5px 5px 5px rgba(0,0,0,0.3)",
+    "@media (max-width: 600px)": {
+      marginBottom: "10px",
+      fontSize: "7.5rem",
     },
-    ":active": {
-      backgroundColor: myColors.pinkColor,
-      transform: "translate(0, -2px)",
-      boxShadow: "0 5px 2px 2px rgba(0,0,0,0.3)",
+    "@media (max-width: 900px)": {
+      paddingBottom: "0",
+      fontSize: "7.5rem",
     }
   },
-  animated: {
-    animation: "moveInBottom 0.5s ease-out",
-    animationFillMode: "backwards",
-  },
+  heading__primary__sub: {
+    display: "block",
+    fontSize: "2rem",
+    letterSpacing: "1rem",
+    animationName: "easeOutBounce-right",
+    animationDuration: ".5s",
+    "@media (max-width: 600px)": {
+      lineHeight: "3rem",
+      fontSize: "2rem",
+      letterSpacing: "1rem",
+      paddingBottom: "2rem",
+    },
+  }
 };
 
-function Header() {
-
-
-
-
-  return (
-    <header style={styles.base}>
-      <div style={styles.header__background}>
-        <div style={styles.header__textbox}>
-          <h1 style={styles.heading__primary}>
-            <span style={styles.heading__primary__main}>Meninas Doceiras</span>
-            <span style={styles.heading__primary__sub}>
-              a verdadeira receita de casa
+function HeadingText() {
+  return (<Radium.StyleRoot>
+    <h1 style={styles.heading__primary}>
+      <span style={styles.heading__primary__main}>Meninas Doceiras</span>
+      <span style={styles.heading__primary__sub}>
+        a verdadeira receita de casa
             </span>
-          </h1>
-          <BToStore style={buttonStyles} content={"Conheça nossos produtos"} />
+    </h1>
+  </Radium.StyleRoot>);
+}
+
+
+
+function HeadingBox() {
+  return (
+    <Radium.StyleRoot>
+      <header style={styles.base}>
+        <div style={styles.header__background}>
+
+          <div style={styles.header__textbox}>
+            <HeadingText></HeadingText>
+            <BToStore content={"Conheça nossos produtos"} />
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </Radium.StyleRoot>
   );
 }
 
-export default Header;
+
+function Header() {
+  return (
+    <HeadingBox></HeadingBox>
+  );
+}
+
+export default Radium(Header);
