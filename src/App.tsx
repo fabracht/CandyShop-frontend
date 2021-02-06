@@ -14,7 +14,7 @@ import {
 } from "react-router-dom";
 import Home from "./Home/Home";
 
-interface PropTypes {}
+interface PropTypes { }
 
 interface StateTypes {
   products: [{}];

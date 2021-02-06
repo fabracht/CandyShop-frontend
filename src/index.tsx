@@ -12,19 +12,12 @@ import { reducers } from "./reducers";
 const store = createStore(reducers, applyMiddleware(thunk));
 
 ReactDOM.render(
-  // <Auth0Provider
-  //   domain="meninasdoceiras.us.auth0.com"
-  //   subdomain="meninasdoceiras.us"
-  //   clientId="iUH4RcI1uEyzcOdUL2yC3c0Esij8TSgm"
-  //   redirectUri={window.location.origin}
-  // >
+
   <React.StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>,
-  // </Auth0Provider>,
-
   document.getElementById("root")
 );
 

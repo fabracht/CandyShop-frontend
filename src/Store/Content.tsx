@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { isCompositeComponentWithType } from "react-dom/test-utils";
 import { IProduct, ICartBox, EProductType } from "../../src/actions";
 
 interface Props {
@@ -60,7 +59,6 @@ class Content extends Component<Props, State> {
     this.setState({
       productTypes: slicedList
     });
-
   }
 
   addToCart(ev: React.MouseEvent<HTMLButtonElement>): void {

@@ -4,27 +4,10 @@
 @import "abstracts/functions";
 @import "abstracts/mixins";
 @import "abstracts/variables";
+@import "components/main-navbutton";
 
 @import "base/base";
 @import "base/animation";
+@import "base/typography";
 
 @import "../SignupLogin/index";
-@import "pages/home";
-
-// @import "base/typography";
-// @import "base/utilities";
-
-// @import "components/main-navbutton";
-// @import "components/bg-video";
-// @import "components/form";
-// @import "components/button";
-// @import "components/button-login";
-// @import "components/button-signup";
-// @import "components/composition";
-// @import "components/feature-box";
-// @import "components/cards";
-// @import "components/story";
-
-@import "layout/footer";
-// @import "layout/header";
-// @import "layout/grid";
